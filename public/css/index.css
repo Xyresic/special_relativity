@@ -1,0 +1,57 @@
+.z-1 {
+    left: 0;
+    width: 100vw;
+    position: absolute;
+    z-index: 1;
+}
+
+#heading {
+    margin-top: 3vh;
+    left: 50%;
+    text-align: center;
+    font-size: min(5vw, 50px);
+    text-shadow: 1px 0 10px slategray;
+}
+
+#divider {
+    position: absolute;
+    background: gray;
+    width: 3px;
+    height: 100vh;
+    left: 50%;
+}
+
+#left {
+    z-index: -1;
+    height: 100vh;
+    background: white;
+}
+
+#left-background {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    width: 50vw;
+    background-size: 40px 40px;
+    background-image:
+            linear-gradient(to left, lightgray 2px, transparent 2px),
+            linear-gradient(to top, lightgray 2px, transparent 2px);
+}
+
+#right {
+    height: 100vh;
+}
+
+#right-background {
+    z-index: -2;
+    position: fixed;
+    top: calc(50% - 5000px);
+    left: 0;
+    height: 10000px;
+    width: 10000px;
+    background-size: 40px 40px;
+    background-image:
+            linear-gradient(to left, lightgray 2px, transparent 2px),
+            linear-gradient(to top, lightgray 2px, transparent 2px);
+    transform: skewX(45deg) skewY(15deg);
+}

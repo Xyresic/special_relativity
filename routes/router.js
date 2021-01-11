@@ -6,7 +6,7 @@ app.use(body_parser.json());
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-    res.render('template', {title: 'Home', message: 'Hello there'});
+    res.render('index');
 });
 
 module.exports = app;
