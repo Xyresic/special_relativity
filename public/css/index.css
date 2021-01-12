@@ -36,6 +36,7 @@
     background-image:
             linear-gradient(to left, lightgray 2px, transparent 2px),
             linear-gradient(to top, lightgray 2px, transparent 2px);
+    z-index: -1;
 }
 
 #right {
@@ -53,5 +54,149 @@
     background-image:
             linear-gradient(to left, lightgray 2px, transparent 2px),
             linear-gradient(to top, lightgray 2px, transparent 2px);
-    transform: skewX(45deg) skewY(15deg);
+    transform: skewX(-30deg) skewY(-30deg);
+}
+
+.top {
+    z-index: 2;
+    margin-top: 6em;
+}
+
+.spacer-1 {
+    margin-top: 2em;
+}
+
+.spacer-2 {
+    margin-top: 3em;
+}
+
+.slider-left {
+    margin-right: 1vw;
+}
+
+.slider-right {
+    margin-left: 1vw;
+}
+
+.clock-face {
+    position: relative;
+    left: calc(25vw - 15vmin);
+    height: 30vmin;
+    width: 30vmin;
+    background: oldlace;
+    border: 7px solid #353535;
+    border-radius: 50%;
+}
+
+.hand {
+    position: absolute;
+    left: 50%;
+    top: 4vmin;
+    height: 10vmin;
+    width: 0.75vmin;
+    background: #b45a4d;
+    border-radius: 2vmin;
+    transform-origin: 0 10vmin;
+    transform: rotate(30deg);
+}
+
+.clock-tick {
+    position: absolute;
+    left: 50%;
+    top: 1vmin;
+    height: 2vmin;
+    width: 0.75vmin;
+    background: #353535;
+    border-radius: 2vmin;
+    transform-origin: 0 13vmin;
+}
+
+.one {
+    transform: rotate(30deg);
+}
+
+.two {
+    transform: rotate(60deg);
+}
+
+.three {
+    transform: rotate(90deg);
+}
+
+.four {
+    transform: rotate(120deg);
+}
+
+.five {
+    transform: rotate(150deg);
+}
+
+.six {
+    transform: rotate(180deg);
+}
+
+.seven {
+    transform: rotate(210deg);
+}
+
+.eight {
+    transform: rotate(240deg);
+}
+
+.nine {
+    transform: rotate(270deg);
+}
+
+.ten {
+    transform: rotate(300deg);
+}
+
+.eleven {
+    transform: rotate(330deg);
+}
+
+.ruler {
+    position: relative;
+    margin-top: 1vh;
+    height: 5vh;
+    width: 40vw;
+    background: gold;
+    border-radius: 1vw;
+}
+
+.ruler-tick {
+    position: absolute;
+    height: 2vh;
+    width: 2px;
+    background: #353535;
+}
+
+.first {
+    left: 20%;
+}
+
+.second {
+    left: 40%;
+}
+
+.third {
+    left: 60%;
+}
+
+.fourth {
+    left: 80%;
+}
+
+.container {
+    height: 20vh;
+}
+
+svg {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: 15vmin;
+    width: 30vmin;
+    transform-origin: center;
+    transform: translate(-50%, 0);
 }
