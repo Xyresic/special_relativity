@@ -1,12 +1,29 @@
-mixin slider(name, id)
+mixin slider(name, id, start_val)
     .d-flex.align-items-center
-        span.slider-left #{name}:
-        input.flex-grow-1(
-            type='range'
-            class='form-control-range'
-            id=id
-        )
-        span.slider-right(id=id + '-val') val
+        if name === 'Velocity'
+            span.slider-left(
+                class='hover'
+                title='Scaled logistically'
+            ) #{name}:
+        else
+            span.slider-left #{name}:
+        if name === 'Angle'
+            input.flex-grow-1(
+                type='range'
+                class='form-range'
+                value='0'
+                max='360'
+                id=id
+            )
+        else
+            input.flex-grow-1(
+                type='range'
+                class='form-range'
+                value='0'
+                id=id
+            )
+        unless name === 'Color'
+            span.slider-right(id=id + '-val')= start_val
 
 mixin clock
     .clock-face
@@ -58,13 +75,13 @@ doctype html
 html(lang='en')
     head
         meta(charset='UTF-8')
+        link(rel='stylesheet', type='text/css', href='/css/index.css')
         link(
             href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css'
             rel='stylesheet'
             integrity='sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1'
             crossorigin='anonymous'
         )
-        link(rel='stylesheet', type='text/css', href='/css/index.css')
         link(rel='shortcut icon', href='/images/gamma.png')
         title= 'Relativity Visualizer'
     body
@@ -80,17 +97,19 @@ html(lang='en')
                         .spacer-1
                         +clock
                         +ruler
-                        .spacer-2
+                        +slider('Angle', 'theta', '0°')
+                        +slider('Color', 'hex')
                         +wave
                 .col#right
                     #right-background
                     .top
-                        h5 Moving Frame
-                        +slider('Velocity', 'speed')
+                        h5.hover(
+                            title='As seen from the rest frame'
+                        ) Moving Frame
+                        +slider('Velocity', 'speed', '0.00c')
                         +clock
                         +ruler
-                        +slider('Angle', 'theta')
-                        +slider('Color', 'hex')
+                        .spacer-2
                         +wave
     script(
         src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'

@@ -22,9 +22,11 @@
 }
 
 #left {
-    z-index: -1;
     height: 100vh;
-    background: white;
+    background-size: 40px 40px;
+    background-image:
+            linear-gradient(to left, lightgray 2px, transparent 2px),
+            linear-gradient(to top, lightgray 2px, transparent 2px);
 }
 
 #left-background {
@@ -32,10 +34,7 @@
     left: 0;
     height: 100vh;
     width: 50vw;
-    background-size: 40px 40px;
-    background-image:
-            linear-gradient(to left, lightgray 2px, transparent 2px),
-            linear-gradient(to top, lightgray 2px, transparent 2px);
+    background: white;
     z-index: -1;
 }
 
@@ -54,12 +53,16 @@
     background-image:
             linear-gradient(to left, lightgray 2px, transparent 2px),
             linear-gradient(to top, lightgray 2px, transparent 2px);
-    transform: skewX(-30deg) skewY(-30deg);
 }
 
 .top {
+    position: relative;
     z-index: 2;
     margin-top: 6em;
+}
+
+.hover:hover {
+    text-shadow: 1px 0 10px slategray;
 }
 
 .spacer-1 {
@@ -67,7 +70,7 @@
 }
 
 .spacer-2 {
-    margin-top: 3em;
+    margin-top: calc(3em + 1vh);
 }
 
 .slider-left {
@@ -75,7 +78,25 @@
 }
 
 .slider-right {
+    width: 2em;
+    text-align: right;
     margin-left: 1vw;
+}
+
+#hex::-webkit-slider-runnable-track {
+    background: linear-gradient(to right,
+            rgba(255, 0, 0, 1) 0%,
+            rgba(255, 154, 0, 1) 10%,
+            rgba(208, 222, 33, 1) 20%,
+            rgba(79, 220, 74, 1) 30%,
+            rgba(63, 218, 216, 1) 40%,
+            rgba(47, 201, 226, 1) 50%,
+            rgba(28, 127, 238, 1) 60%,
+            rgba(95, 21, 242, 1) 70%,
+            rgba(186, 12, 248, 1) 80%,
+            rgba(251, 7, 217, 1) 90%,
+            rgba(255, 0, 0, 1) 100%
+    );
 }
 
 .clock-face {
@@ -88,6 +109,15 @@
     border-radius: 50%;
 }
 
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .hand {
     position: absolute;
     left: 50%;
@@ -97,7 +127,10 @@
     background: #b45a4d;
     border-radius: 2vmin;
     transform-origin: 0 10vmin;
-    transform: rotate(30deg);
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .clock-tick {
@@ -158,6 +191,7 @@
 .ruler {
     position: relative;
     margin-top: 1vh;
+    margin-bottom: 1vh;
     height: 5vh;
     width: 40vw;
     background: gold;
