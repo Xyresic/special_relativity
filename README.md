@@ -1,6 +1,7 @@
 # Special Relativity Visualizer
 A small visualizer of the effects of special relativity
-for MIT's 8.20 (Intro to Special Relativity) class.
+for MIT's 8.20 (Intro to Special Relativity) class.  
+[Click here for live demo!](https://specialrelativity.herokuapp.com/)
 ## Launch Codes
 Assumes Node.js and npm are installed
 ### Dependencies
