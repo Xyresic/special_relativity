@@ -48,11 +48,13 @@ let update_gamma = function(event) {
     hands[0].offsetHeight;
     hands.css('animation', '');
     $('.hand:odd').css('animation-duration', `${3 * gamma}s`);
+    update_theta();
+    update_color();
 
 }
 
 let update_theta = function() {
-    theta = parseInt(this.value)
+    theta = parseInt(angle_slider.value)
     $('#theta-val').text(theta + '°');
     $('svg:odd').css('transform', `translate(-50%, 0) rotate(${-theta}deg)`);
     let theta_prime = Math.atan2(Math.sin(theta * Math.PI / 180), gamma * (Math.cos(theta * Math.PI / 180) + beta)) * 180 / Math.PI;
@@ -60,7 +62,7 @@ let update_theta = function() {
 }
 
 let update_color = function() {
-    let freq = 400 + parseInt(this.value);
+    let freq = 400 + parseInt(color_slider.value);
     hex = HSVtoRGB((freq - 400) * 0.8 / 390, 1, 1);
     $('.wave:odd').attr('stroke', `rgba(${hex.r}, ${hex.g}, ${hex.b}, 1)`);
     let freq_prime;
@@ -88,3 +90,4 @@ let update_color = function() {
 speed_slider.addEventListener('input', update_gamma);
 angle_slider.addEventListener('input', update_theta);
 color_slider.addEventListener('input', update_color);
+$('.reverse').on('click', update_color);
