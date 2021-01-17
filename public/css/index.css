@@ -87,7 +87,7 @@
 }
 
 #theta-val {
-    width: 2em;
+    width: 3em;
 }
 
 #hex::-webkit-slider-runnable-track {
@@ -133,7 +133,7 @@
     border-radius: 2vmin;
     transform-origin: 0 10vmin;
     animation-name: rotate;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
