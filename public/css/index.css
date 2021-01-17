@@ -45,10 +45,10 @@
 #right-background {
     z-index: -2;
     position: fixed;
-    top: calc(50% - 5000px);
+    top: calc(50% - 50000px);
     left: 0;
-    height: 10000px;
-    width: 10000px;
+    height: 100000px;
+    width: 100000px;
     background-size: 40px 40px;
     background-image:
             linear-gradient(to left, lightgray 2px, transparent 2px),

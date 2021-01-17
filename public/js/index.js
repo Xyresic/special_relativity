@@ -38,6 +38,12 @@ function HSVtoRGB(h, s, v) {
     };
 }
 
+let update_background = () => {
+    let offset = Math.atan(beta) * 180 / Math.PI;
+    if (!$('.reverse')[0].checked) offset *= -1;
+    $('#right-background').css('transform', `translate(-50vw, 0) skewX(${offset}deg) skewY(${offset}deg)`);
+}
+
 let update_gamma = function(event) {
     beta = logistic_scale(this.value / 10);
     gamma = 1 / Math.sqrt(1 - beta);
@@ -50,10 +56,10 @@ let update_gamma = function(event) {
     $('.hand:odd').css('animation-duration', `${3 * gamma}s`);
     update_theta();
     update_color();
-
+    update_background();
 }
 
-let update_theta = function() {
+let update_theta = () => {
     theta = parseInt(angle_slider.value)
     $('#theta-val').text(theta + '°');
     $('svg:odd').css('transform', `translate(-50%, 0) rotate(${-theta}deg)`);
@@ -61,7 +67,7 @@ let update_theta = function() {
     $('svg:even').css('transform', `translate(-50%, 0) rotate(${-theta_prime}deg)`);
 }
 
-let update_color = function() {
+let update_color = () => {
     let freq = 400 + parseInt(color_slider.value);
     hex = HSVtoRGB((freq - 400) * 0.8 / 390, 1, 1);
     $('.wave:odd').attr('stroke', `rgba(${hex.r}, ${hex.g}, ${hex.b}, 1)`);
@@ -90,4 +96,7 @@ let update_color = function() {
 speed_slider.addEventListener('input', update_gamma);
 angle_slider.addEventListener('input', update_theta);
 color_slider.addEventListener('input', update_color);
-$('.reverse').on('click', update_color);
+$('.reverse').on('click', () => {
+    update_color();
+    update_background();
+});
