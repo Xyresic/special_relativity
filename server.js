@@ -10,6 +10,6 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', router);
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`Server running at http://${hostname}:${port}/`)
 });
