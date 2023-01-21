@@ -62,14 +62,14 @@ let update_gamma = function(event) {
 let update_theta = () => {
     theta = parseInt(angle_slider.value)
     $('#theta-val').text(theta + '°');
-    $('svg:odd').css('transform', `translate(-50%, 0) rotate(${-theta}deg)`);
+    $('svg:odd').css('transform', `translate(-50%, 0) scale(0.9) rotate(${-theta}deg)`);
     let theta_prime;
     if ($('.reverse')[0].checked) {
         theta_prime = Math.atan2(Math.sin(theta * Math.PI / 180), gamma * (Math.cos(theta * Math.PI / 180) - beta)) * 180 / Math.PI;
     } else {
         theta_prime = Math.atan2(Math.sin(theta * Math.PI / 180), gamma * (Math.cos(theta * Math.PI / 180) + beta)) * 180 / Math.PI;
     }
-    $('svg:even').css('transform', `translate(-50%, 0) rotate(${-theta_prime}deg)`);
+    $('svg:even').css('transform', `translate(-50%, 0) scale(0.9) rotate(${-theta_prime}deg)`);
 }
 
 let update_color = () => {

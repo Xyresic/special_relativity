@@ -256,5 +256,5 @@ svg {
     height: 15vmin;
     width: 30vmin;
     transform-origin: center;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0) scale(0.9);
 }
